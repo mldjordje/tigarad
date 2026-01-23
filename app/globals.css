@@ -1,14 +1,15 @@
 ﻿:root {
   color-scheme: only light;
-  --bg: #f7f4ef;
-  --ink: #1b1916;
-  --ink-soft: #3b3732;
-  --muted: #6b645c;
+  --bg: #f9f7f3;
+  --ink: #141312;
+  --ink-soft: #3c3934;
+  --muted: #6d665e;
   --accent: #b51f2a;
   --accent-soft: rgba(181, 31, 42, 0.12);
+  --cta: #111111;
   --card: #ffffff;
   --line: #e6dfd5;
-  --shadow: 0 24px 60px rgba(17, 15, 12, 0.12);
+  --shadow: 0 18px 50px rgba(15, 13, 10, 0.08);
 }
 
 * {
@@ -19,7 +20,7 @@ body {
   margin: 0;
   font-family: var(--font-manrope), system-ui, -apple-system, sans-serif;
   color: var(--ink);
-  background: var(--bg);
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg) 45%, #f1ece4 100%);
   line-height: 1.6;
 }
 
@@ -42,7 +43,7 @@ h3 {
 }
 
 .page {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 28px 24px 120px;
 }
@@ -50,6 +51,9 @@ h3 {
 .nav-wrap {
   display: grid;
   gap: 18px;
+  position: relative;
+  z-index: 10;
+  isolation: isolate;
 }
 
 .topline {
@@ -113,6 +117,8 @@ h3 {
 .nav-actions {
   display: flex;
   gap: 12px;
+  position: relative;
+  z-index: 2;
 }
 
 .btn {
@@ -120,25 +126,25 @@ h3 {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 12px 20px;
+  padding: 12px 22px;
   border-radius: 999px;
   border: 1px solid var(--line);
   font-weight: 600;
   font-size: 14px;
-  background: #fff;
+  background: #f9f6f1;
   color: var(--ink);
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .btn.primary {
-  background: var(--accent);
+  background: var(--cta);
   color: #fff;
   border-color: transparent;
-  box-shadow: 0 18px 34px rgba(181, 31, 42, 0.28);
+  box-shadow: 0 14px 26px rgba(17, 17, 17, 0.25);
 }
 
 .btn.ghost {
-  background: #fbf8f2;
+  background: #fdfbf8;
 }
 
 .btn:hover {
@@ -206,6 +212,10 @@ h3 {
   gap: 10px;
 }
 
+.nav-panel .btn {
+  width: 100%;
+}
+
 .hero {
   margin-top: 20px;
   display: grid;
@@ -214,9 +224,9 @@ h3 {
 
 .hero-media {
   position: relative;
-  border-radius: 28px;
+  border-radius: 30px;
   overflow: hidden;
-  min-height: clamp(280px, 55vh, 520px);
+  min-height: clamp(340px, 70vh, 640px);
   background: #101010;
 }
 
@@ -247,13 +257,13 @@ h3 {
 
 .hero-body {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 280px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 260px);
   gap: 32px;
   align-items: start;
 }
 
 .hero-copy h1 {
-  font-size: clamp(32px, 5vw, 56px);
+  font-size: clamp(32px, 5vw, 58px);
   line-height: 1.08;
 }
 
@@ -325,26 +335,28 @@ h3 {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 26px;
   margin-top: 28px;
 }
 
 .product-card {
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
   display: grid;
+  box-shadow: 0 10px 30px rgba(17, 15, 12, 0.06);
 }
 
 .product-image {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
+  background: #fbf9f4;
 }
 
 .product-image img {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .product-card .body {
@@ -410,6 +422,7 @@ h3 {
   border-radius: 20px;
   border: 1px solid var(--line);
   padding: 22px;
+  box-shadow: 0 10px 30px rgba(17, 15, 12, 0.05);
 }
 
 .tag {
@@ -508,57 +521,30 @@ details p {
 
 .reveal {
   opacity: 0;
-  transform: translateY(26px);
-  filter: blur(10px);
-  transition: opacity 0.9s ease, transform 0.9s ease, filter 1s ease;
-  transition-delay: var(--d, 0s);
-  position: relative;
-}
-
-.reveal[data-sweep='true']::after {
-  content: "";
-  position: absolute;
-  inset: -15% -10%;
-  background: linear-gradient(120deg, rgba(181, 31, 42, 0.18), transparent 45%, rgba(201, 167, 106, 0.18));
-  transform: translateX(-60%) skewX(-10deg);
-  opacity: 0;
-  transition: transform 1.2s ease, opacity 1.2s ease;
-  pointer-events: none;
-  mix-blend-mode: multiply;
+  transform: translateY(30px);
+  will-change: transform, opacity;
 }
 
 .reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-}
-
-.reveal.is-visible[data-sweep='true']::after {
-  opacity: 1;
-  transform: translateX(60%) skewX(-10deg);
-}
-
-.reveal.is-visible h1,
-.reveal.is-visible .section-head h2 {
-  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-  animation: titleWipe 1s ease forwards;
-  animation-delay: calc(var(--d, 0s) + 0.1s);
+  animation: fadeUp 0.9s ease forwards;
+  animation-delay: var(--d, 0s);
 }
 
 .reveal.is-visible img {
-  animation: imageZoom 1.2s ease forwards;
+  animation: imageZoom 1.1s ease forwards;
   animation-delay: calc(var(--d, 0s) + 0.1s);
 }
 
-@keyframes titleWipe {
+@keyframes fadeUp {
   to {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes imageZoom {
   from {
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
   to {
     transform: scale(1);
@@ -569,16 +555,11 @@ details p {
   .reveal {
     opacity: 1;
     transform: none;
-    filter: none;
-    transition: none;
+    animation: none;
   }
 
-  .reveal::after,
-  .reveal.is-visible h1,
-  .reveal.is-visible .section-head h2,
   .reveal.is-visible img {
     animation: none;
-    clip-path: none;
   }
 
   .hero-video {
