@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="sr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tigar AD Pirot | Gumena obu&#263;a, tehni&#269;ka guma i hemijski proizvodi</title>
+    <meta name="description" content="Tigar AD Pirot: proizvo&#273;a&#269; gumene obu&#263;e, tehni&#269;ke gume i hemijskih proizvoda. Jedan landing za B2C prodaju i B2B upite.">
+    <meta name="keywords" content="gumena obu&#263;a, proizvo&#273;a&#269; gumene obu&#263;e, gumene cipele, gumene &#269;izme, Tigar AD, Pirot">
+    <meta property="og:title" content="Tigar AD Pirot | Proizvodnja gumene obu&#263;e">
+    <meta property="og:description" content="Industrijska proizvodnja gumene obu&#263;e, tehni&#269;ke gume i hemijskih proizvoda.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="sr_RS">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        color-scheme: only light;
+        --bg: #f7f3ec;
+        --bg-2: #ece6dc;
+        --ink: #161616;
+        --ink-soft: #3f3c37;
+        --muted: #6c6861;
+        --accent: #b61b26;
+        --accent-2: #c9a76a;
+        --card: #ffffff;
+        --line: rgba(22, 22, 22, 0.12);
+        --shadow: 0 30px 60px rgba(20, 20, 20, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Manrope", system-ui, -apple-system, sans-serif;
+        color: var(--ink);
+        background: radial-gradient(1200px 520px at 10% -10%, rgba(182, 27, 38, 0.12), transparent 60%),
+          radial-gradient(1100px 540px at 120% 0%, rgba(201, 167, 106, 0.16), transparent 65%),
+          linear-gradient(180deg, var(--bg), var(--bg-2) 55%, var(--bg));
+        min-height: 100vh;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23231f20' stroke-opacity='0.08'%3E%3Cpath d='M0 0h120v120H0z'/%3E%3Cpath d='M0 60h120M60 0v120'/%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.2;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 24px 24px 96px;
+        position: relative;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 10px 0 24px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo img {
+        height: 42px;
+        width: auto;
+        border-radius: 6px;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        font-size: 14px;
+        color: var(--ink-soft);
+      }
+
+      .nav-links a {
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -6px;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.25s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 12px 20px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        font-weight: 600;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        background: #fff;
+      }
+
+      .btn.primary {
+        background: var(--accent);
+        color: #fff;
+        border-color: transparent;
+        box-shadow: 0 18px 34px rgba(182, 27, 38, 0.28);
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow);
+      }
+
+      .hero {
+        position: relative;
+        border-radius: 28px;
+        min-height: 72vh;
+        overflow: hidden;
+        display: grid;
+        align-items: center;
+        padding: 72px 64px;
+        color: #f7f2ea;
+        background: #0f1011;
+        box-shadow: var(--shadow);
+      }
+
+      .hero-media,
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-media video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(0.95) contrast(1.05);
+      }
+
+      .hero-overlay {
+        background: linear-gradient(120deg, rgba(15, 15, 15, 0.68), rgba(15, 15, 15, 0.15));
+      }
+
+      .hero-content {
+        position: relative;
+        max-width: 560px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 12px;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: rgba(247, 242, 234, 0.75);
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 34px;
+        height: 2px;
+        background: var(--accent-2);
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Fraunces", serif;
+        font-weight: 500;
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(36px, 6vw, 64px);
+        line-height: 1.05;
+      }
+
+      .hero-lead {
+        font-size: clamp(16px, 2.1vw, 20px);
+        color: rgba(247, 242, 234, 0.85);
+        margin: 0;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .hero-kpis {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 12px;
+        margin-top: 8px;
+      }
+
+      .kpi {
+        padding: 12px 14px;
+        border-radius: 14px;
+        background: rgba(15, 15, 15, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        font-size: 14px;
+      }
+
+      .section {
+        margin-top: 80px;
+      }
+
+      .section-head {
+        display: grid;
+        gap: 12px;
+        max-width: 720px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(26px, 3.4vw, 40px);
+      }
+
+      .section-head p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .lead {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+        margin-top: 24px;
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: 20px;
+        border: 1px solid var(--line);
+        padding: 20px;
+        box-shadow: 0 15px 30px rgba(20, 20, 20, 0.08);
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(182, 27, 38, 0.08);
+        color: var(--accent);
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .split {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 32px;
+        align-items: center;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 16px 0 24px;
+      }
+
+      .chip {
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: #fff;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink-soft);
+      }
+
+      .media-card {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .media-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .media-card .caption {
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(15, 15, 15, 0.7);
+        color: #fff;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 16px;
+        margin-top: 24px;
+      }
+
+      .product-card {
+        background: #fff;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        overflow: hidden;
+        display: grid;
+      }
+
+      .product-card img {
+        height: 180px;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .product-card .body {
+        padding: 16px;
+        display: grid;
+        gap: 6px;
+      }
+
+      .product-card .label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--muted);
+      }
+
+      .product-card h3 {
+        font-size: 20px;
+      }
+
+      .product-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .media-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+        margin-top: 24px;
+      }
+
+      .media-grid figure {
+        margin: 0;
+        border-radius: 18px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 14px 30px rgba(20, 20, 20, 0.12);
+      }
+
+      .media-grid figcaption {
+        position: absolute;
+        left: 16px;
+        bottom: 16px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.6);
+        color: #fff;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 16px;
+      }
+
+      label {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink-soft);
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: #fff;
+        font-family: inherit;
+        font-size: 14px;
+      }
+
+      textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .form-card {
+        display: grid;
+        gap: 16px;
+      }
+
+      .form-note {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .highlight {
+        background: linear-gradient(120deg, rgba(182, 27, 38, 0.08), rgba(201, 167, 106, 0.12));
+        border: 1px solid rgba(182, 27, 38, 0.2);
+      }
+
+      .heritage {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+        align-items: center;
+      }
+
+      .heritage img {
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+      }
+
+      .faq {
+        display: grid;
+        gap: 12px;
+        margin-top: 24px;
+      }
+
+      details {
+        background: #fff;
+        border-radius: 16px;
+        border: 1px solid var(--line);
+        padding: 16px 18px;
+      }
+
+      details summary {
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      details p {
+        margin: 10px 0 0;
+        color: var(--muted);
+      }
+
+      .footer {
+        margin-top: 80px;
+        padding: 24px;
+        border-radius: 20px;
+        background: #111;
+        color: #f6f1ea;
+        display: grid;
+        gap: 12px;
+      }
+
+      .footer .cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .reveal {
+        animation: fadeUp 0.8s ease both;
+        animation-delay: var(--d, 0s);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .reveal {
+          animation: none;
+        }
+      }
+
+      @media (max-width: 960px) {
+        .nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+        }
+
+        .hero {
+          padding: 56px 32px;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .hero {
+          padding: 48px 24px;
+          min-height: 64vh;
+        }
+
+        .hero-actions {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Tigar AD",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Pirot",
+          "addressCountry": "RS"
+        },
+        "description": "Proizvodnja gumene obuce, tehnicke gume i hemijskih proizvoda."
+      }
+    </script>
+  </head>
+  <body id="top">
+    <div class="page">
+      <header class="nav">
+        <a class="logo" href="#top">
+          <img src="logotigarresponsive.jpg" alt="Tigar AD logo">
+        </a>
+        <nav class="nav-links" aria-label="Glavna navigacija">
+          <a href="#obuca">Obu&#263;a</a>
+          <a href="#guma">Tehni&#269;ka guma</a>
+          <a href="#hemija">Hemija</a>
+          <a href="#proizvodnja">Proizvodnja</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+        <a class="btn primary" href="#b2b">B2B upit</a>
+      </header>
+
+      <main>
+        <section class="hero reveal" style="--d: 0.05s">
+          <div class="hero-media" aria-hidden="true">
+            <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
+              <source src="../public/IMG_4707.MOV" type="video/quicktime">
+            </video>
+          </div>
+          <div class="hero-overlay" aria-hidden="true"></div>
+          <div class="hero-content">
+            <span class="eyebrow">Tigar AD &#8212; Pirot, Srbija</span>
+            <h1>Industrijska proizvodnja gumene obu&#263;e, tehni&#269;ke gume i hemijskih proizvoda.</h1>
+            <p class="hero-lead">
+              Vi&#353;e od osam decenija iskustva u gumenoj industriji, sa fokusom na bezbednost,
+              dug vek trajanja i pouzdanu isporuku za B2C i B2B partnere.
+            </p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#obuca">Katalog obu&#263;e</a>
+              <a class="btn" href="#b2b">B2B upit</a>
+            </div>
+            <div class="hero-kpis">
+              <div class="kpi">3 proizvodne oblasti</div>
+              <div class="kpi">B2C prodaja + B2B upiti</div>
+              <div class="kpi">Proizvodnja u Pirotu</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section reveal" style="--d: 0.1s">
+          <div class="section-head">
+            <span class="tag">Pregled kapaciteta</span>
+            <h2>Jedan landing za tri strate&#353;ke oblasti fabrike.</h2>
+            <p>
+              Fokus je na jasnoj separaciji oblasti uz zajedni&#269;ki premium narativ, kako bi
+              klijent dobio uverljiv pregled pre odvajanja u posebne stranice.
+            </p>
+          </div>
+          <div class="grid-3">
+            <article class="card">
+              <span class="tag">Obu&#263;a (B2C + B2B)</span>
+              <h3>Gumene &#269;izme i cipele</h3>
+              <p>
+                Radna, za&#353;titna, modna, de&#269;ija i lova&#269;ka obu&#263;a. Katalog i prodaja
+                direktno ka krajnjim korisnicima, uz veleprodajne upite.
+              </p>
+            </article>
+            <article class="card">
+              <span class="tag">Tehni&#269;ka guma (B2B)</span>
+              <h3>Industrijska re&#353;enja</h3>
+              <p>
+                Programi za gra&#273;evinarstvo, vojni segment i &#382;eleznice. Fokus na
+                specifikacijama, serijama i industrijskim standardima.
+              </p>
+            </article>
+            <article class="card">
+              <span class="tag">Hemija (B2B)</span>
+              <h3>Industrijski lepkovi</h3>
+              <p>
+                Lepkovi op&#353;te potro&#353;nje i re&#353;enja za gra&#273;evinarstvo i rudarstvo, uz
+                jasne tehni&#269;ke listove i brz upit.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="obuca" class="section split reveal" style="--d: 0.14s">
+          <div>
+            <span class="tag">Obu&#263;a</span>
+          <h2>Gumena obu&#263;a za rad, bezbednost i svakodnevnu upotrebu.</h2>
+            <p class="lead">
+              Kolekcije prate industrijske i potro&#353;a&#269;ke standarde, sa jasnim
+              pozicioniranjem i filterima po nameni, standardu i veli&#269;ini.
+            </p>
+            <div class="chips">
+              <span class="chip">Radna obu&#263;a</span>
+              <span class="chip">Za&#353;titna obu&#263;a</span>
+              <span class="chip">Modna obu&#263;a</span>
+              <span class="chip">De&#269;ija obu&#263;a</span>
+              <span class="chip">Lova&#269;ka obu&#263;a</span>
+            </div>
+            <a class="btn" href="#shop">Pogledaj preview kataloga</a>
+          </div>
+          <div class="media-card">
+            <img src="assets/editorial-2.jpg" alt="Proizvodnja gumene obu&#263;e" loading="lazy" decoding="async">
+            <span class="caption">Manufacturer-first</span>
+          </div>
+        </section>
+
+        <section id="shop" class="section reveal" style="--d: 0.18s">
+          <div class="section-head">
+            <span class="tag">B2C shop</span>
+            <h2>Istaknuti modeli gumene obu&#263;e</h2>
+            <p>Produkt grid po uzoru na premium brendove, spreman za detaljnu katalogizaciju.</p>
+          </div>
+          <div class="product-grid">
+            <article class="product-card">
+              <img src="assets/editorial-2.jpg" alt="Radna gumena &#269;izma" loading="lazy" decoding="async">
+              <div class="body">
+                <span class="label">Radna obu&#263;a</span>
+                <h3>Tigar Work Pro</h3>
+                <p>Poja&#269;ana stabilnost i otpornost na habanje.</p>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/editorial-2.jpg" alt="Za&#353;titna gumena &#269;izma" loading="lazy" decoding="async">
+              <div class="body">
+                <span class="label">Za&#353;titna obu&#263;a</span>
+                <h3>Tigar Protect</h3>
+                <p>Bezbednosni standardi i oja&#269;ani d&#273;on.</p>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/editorial-2.jpg" alt="Modna gumena &#269;izma" loading="lazy" decoding="async">
+              <div class="body">
+                <span class="label">Modna obu&#263;a</span>
+                <h3>Tigar Urban</h3>
+                <p>Minimalisti&#269;ki dizajn za svaki dan.</p>
+              </div>
+            </article>
+            <article class="product-card">
+              <img src="assets/editorial-2.jpg" alt="Lova&#269;ka gumena &#269;izma" loading="lazy" decoding="async">
+              <div class="body">
+                <span class="label">Lova&#269;ka obu&#263;a</span>
+                <h3>Tigar Hunt</h3>
+                <p>Otpornost na vlagu i terenske uslove.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="proizvodnja" class="section reveal" style="--d: 0.22s">
+          <div class="section-head">
+            <span class="tag">Proizvodnja</span>
+            <h2>Kontrolisani procesi i specijalizovana oprema.</h2>
+            <p>
+              Editorial pristup prikazuje fabriku kao primarni dokaz kvaliteta: ljudi,
+              ma&#353;ine i disciplina procesa.
+            </p>
+          </div>
+          <div class="media-grid">
+            <figure>
+              <img src="assets/editorial-1.jpg" alt="Linija za proizvodnju" loading="lazy" decoding="async">
+              <figcaption>Rad u serijama</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/editorial-3.jpg" alt="Proizvodna oprema" loading="lazy" decoding="async">
+              <figcaption>Kontrola kvaliteta</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/campus.jpg" alt="Fabrika Tigar AD" loading="lazy" decoding="async">
+              <figcaption>Pirot</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section id="b2b" class="section reveal" style="--d: 0.26s">
+          <div class="section-head">
+            <span class="tag">B2B upiti</span>
+            <h2>Brzi upiti za industrijske programe.</h2>
+            <p>Odvojene forme za tehni&#269;ku gumu i hemijske proizvode radi br&#382;e obrade.</p>
+          </div>
+          <div class="grid-3">
+            <form id="guma" class="card highlight form-card" action="#">
+              <h3>Tehni&#269;ka guma</h3>
+              <p class="form-note">Segmenti: gra&#273;evinarstvo, vojni program, &#382;eleznice.</p>
+              <div class="form-grid">
+                <div>
+                  <label for="guma-company">Ime firme</label>
+                  <input id="guma-company" type="text" placeholder="Naziv firme">
+                </div>
+                <div>
+                  <label for="guma-email">Email</label>
+                  <input id="guma-email" type="email" placeholder="email@firma.rs">
+                </div>
+                <div>
+                  <label for="guma-category">Kategorija / namena</label>
+                  <select id="guma-category">
+                    <option>Gra&#273;evinarstvo</option>
+                    <option>Vojni program</option>
+                    <option>&#381;eleznice</option>
+                    <option>Ostalo</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="guma-qty">Koli&#269;ina</label>
+                  <input id="guma-qty" type="text" placeholder="npr. 1000 kom">
+                </div>
+              </div>
+              <div>
+                <label for="guma-note">Napomena / poruka</label>
+                <textarea id="guma-note" placeholder="Opis potrebe ili specifikacije"></textarea>
+              </div>
+              <button class="btn primary" type="submit">Po&#353;alji upit</button>
+            </form>
+
+            <form id="hemija" class="card highlight form-card" action="#">
+              <h3>Hemijski proizvodi</h3>
+              <p class="form-note">Lepkovi op&#353;te potro&#353;nje i industrijski program.</p>
+              <div class="form-grid">
+                <div>
+                  <label for="hemija-company">Ime firme</label>
+                  <input id="hemija-company" type="text" placeholder="Naziv firme">
+                </div>
+                <div>
+                  <label for="hemija-email">Email</label>
+                  <input id="hemija-email" type="email" placeholder="email@firma.rs">
+                </div>
+                <div>
+                  <label for="hemija-product">Proizvod</label>
+                  <input id="hemija-product" type="text" placeholder="Naziv proizvoda">
+                </div>
+                <div>
+                  <label for="hemija-qty">Koli&#269;ina</label>
+                  <input id="hemija-qty" type="text" placeholder="npr. 500 kg">
+                </div>
+              </div>
+              <div>
+                <label for="hemija-note">Napomena</label>
+                <textarea id="hemija-note" placeholder="Opis namene ili potrebna specifikacija"></textarea>
+              </div>
+              <button class="btn primary" type="submit">Po&#353;alji upit</button>
+            </form>
+
+            <article class="card">
+              <span class="tag">Nasle&#273;e</span>
+              <h3>Kvalitet koji se pamti</h3>
+              <p>
+                Dugoro&#269;na tradicija u gumenoj industriji i fokus na pouzdanost
+                isporuke za doma&#263;e i internacionalne partnere.
+              </p>
+              <img src="assets/editorial-3.jpg" alt="Industrijska oprema" loading="lazy" decoding="async">
+            </article>
+          </div>
+        </section>
+
+        <section class="section heritage reveal" style="--d: 0.3s">
+          <img src="assets/heritage.jpg" alt="Tigar priznanje" loading="lazy" decoding="async">
+          <div>
+            <span class="tag">Od 1935.</span>
+            <h2>Nasle&#273;e kvaliteta i industrijski kredibilitet.</h2>
+            <p class="lead">
+              Tigar AD se pozicionira kao pouzdan proizvo&#273;a&#269; gumene obu&#263;e i
+              tehni&#269;ke gume, sa reputacijom izgra&#273;enom kroz decenije.
+            </p>
+            <a class="btn" href="#kontakt">Zapo&#269;ni saradnju</a>
+          </div>
+        </section>
+
+        <section id="faq" class="section reveal" style="--d: 0.34s">
+          <div class="section-head">
+            <span class="tag">FAQ</span>
+            <h2>Naj&#269;e&#353;&#263;a pitanja o gumenoj obu&#263;i i proizvodnji.</h2>
+            <p>SEO i AI-friendly blok sa jasnim definicijama i terminima.</p>
+          </div>
+          <div class="faq">
+            <details>
+              <summary>&#352;ta je gumena obu&#263;a?</summary>
+              <p>Gumena obu&#263;a je vodootporna obu&#263;a namenjena radu, bezbednosti i svakodnevnoj upotrebi u zahtevnim uslovima.</p>
+            </details>
+            <details>
+              <summary>Da li Tigar AD proizvodi gumene &#269;izme i gumene cipele?</summary>
+              <p>Da, program obuhvata gumene &#269;izme i cipele za radnu, za&#353;titnu, modnu i lova&#269;ku namenu.</p>
+            </details>
+            <details>
+              <summary>&#352;ta obuhvata tehni&#269;ka guma?</summary>
+              <p>Tehni&#269;ka guma uklju&#269;uje industrijske proizvode i komponente namenjene gra&#273;evinarstvu, vojnom programu i &#382;eleznicama.</p>
+            </details>
+            <details>
+              <summary>Kako funkcioni&#353;e B2B upit?</summary>
+              <p>Popunite kratku formu za odgovaraju&#263;i program, a tim iz Tigar AD prosle&#273;uje ponudu i specifikacije u najkra&#263;em roku.</p>
+            </details>
+          </div>
+        </section>
+
+        <section id="kontakt" class="section reveal" style="--d: 0.38s">
+          <div class="section-head">
+            <span class="tag">Kontakt</span>
+            <h2>Spremni za saradnju.</h2>
+            <p>
+              Ovaj landing slu&#382;i kao centralna prezentacija proizvodnih oblasti.
+              Nakon odobrenja ponude sledi razdvajanje na tri posebne stranice.
+            </p>
+          </div>
+          <div class="grid-3">
+            <article class="card">
+              <h3>Tigar AD, Pirot</h3>
+              <p>Industrijska proizvodnja gumene obu&#263;e, tehni&#269;ke gume i hemije.</p>
+              <p class="form-note">Za sve upite koristite forme ili direktan kontakt tim.</p>
+            </article>
+            <article class="card">
+              <h3>B2C prodaja</h3>
+              <p>Online katalog i direktna prodaja gumene obu&#263;e.</p>
+              <a class="btn" href="#obuca">Idi na katalog</a>
+            </article>
+            <article class="card">
+              <h3>B2B programi</h3>
+              <p>Tehni&#269;ka guma i hemijski proizvodi uz brzi upit.</p>
+              <a class="btn primary" href="#b2b">Po&#353;alji upit</a>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer reveal" style="--d: 0.42s">
+        <h2>Tigar AD &#8212; manufacturing-first digitalni nastup.</h2>
+        <p>
+          Slede&#263;i korak je detaljan UX za katalog obu&#263;e i posebne stranice za tehni&#269;ku gumu
+          i hemijske proizvode.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#obuca">Kreni od obu&#263;e</a>
+          <a class="btn" href="#top">Nazad na vrh</a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
