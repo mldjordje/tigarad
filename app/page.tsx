@@ -1,6 +1,7 @@
 ﻿import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import HeroMedia from './components/HeroMedia';
+import RevealObserver from './components/RevealObserver';
 
 const schemaOrg = {
   '@context': 'https://schema.org',
@@ -19,6 +20,7 @@ const reveal = (delay: string) => ({ '--d': delay } as CSSProperties);
 export default function Page() {
   return (
     <div className="page" id="top">
+      <RevealObserver />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
@@ -72,7 +74,7 @@ export default function Page() {
       </header>
 
       <main>
-        <section className="hero reveal" style={reveal('0.05s')}>
+        <section className="hero reveal" data-sweep="true" style={reveal('0.05s')}>
           <div className="hero-media" aria-hidden="true">
             <HeroMedia />
           </div>
@@ -101,7 +103,7 @@ export default function Page() {
           </div>
         </section>
 
-        <section id="obuca" className="section reveal" style={reveal('0.1s')}>
+        <section id="obuca" className="section reveal" data-sweep="true" style={reveal('0.1s')}>
           <div className="section-head">
             <span className="section-tag">Kolekcije obuce</span>
             <h2>Premium izgled, industrijska izdrzljivost.</h2>
@@ -147,7 +149,7 @@ export default function Page() {
           </div>
         </section>
 
-        <section className="section split reveal" style={reveal('0.16s')}>
+        <section className="section split reveal" data-sweep="true" style={reveal('0.16s')}>
           <div>
             <span className="section-tag">Manufacturer-first</span>
             <h2>Fabrika koja definise kvalitet.</h2>
@@ -172,7 +174,7 @@ export default function Page() {
           </figure>
         </section>
 
-        <section className="section reveal" style={reveal('0.2s')}>
+        <section className="section reveal" data-sweep="true" style={reveal('0.2s')}>
           <div className="section-head">
             <span className="section-tag">Programi</span>
             <h2>Tri oblasti, jedna industrijska platforma.</h2>
@@ -197,7 +199,7 @@ export default function Page() {
           </div>
         </section>
 
-        <section id="proizvodnja" className="section reveal" style={reveal('0.24s')}>
+        <section id="proizvodnja" className="section reveal" data-sweep="true" style={reveal('0.24s')}>
           <div className="section-head">
             <span className="section-tag">Proizvodnja</span>
             <h2>Kontrolisani procesi i specijalizovana oprema.</h2>
@@ -236,7 +238,7 @@ export default function Page() {
           </div>
         </section>
 
-        <section id="b2b" className="section reveal" style={reveal('0.28s')}>
+        <section id="b2b" className="section reveal" data-sweep="true" style={reveal('0.28s')}>
           <div className="section-head">
             <span className="section-tag">B2B upiti</span>
             <h2>Brzi upiti za tehnicku gumu i hemiju.</h2>
@@ -326,11 +328,11 @@ export default function Page() {
           </div>
         </section>
 
-        <section className="section split reveal" style={reveal('0.32s')}>
+        <section className="section split reveal" data-sweep="true" style={reveal('0.32s')}>
           <figure>
             <Image
               src="/landing/hero-poster.jpg"
-              alt="Tigar naslede"
+              alt="Tigar nasledje"
               width={1350}
               height={1800}
               sizes="(max-width: 960px) 100vw, 45vw"
@@ -351,7 +353,7 @@ export default function Page() {
           </div>
         </section>
 
-        <section id="faq" className="section reveal" style={reveal('0.36s')}>
+        <section id="faq" className="section reveal" data-sweep="true" style={reveal('0.36s')}>
           <div className="section-head">
             <span className="section-tag">FAQ</span>
             <h2>Najcesca pitanja o gumenoj obuci i proizvodnji.</h2>
@@ -377,13 +379,11 @@ export default function Page() {
           </div>
         </section>
 
-        <section id="kontakt" className="section reveal" style={reveal('0.4s')}>
+        <section id="kontakt" className="section reveal" data-sweep="true" style={reveal('0.4s')}>
           <div className="section-head">
             <span className="section-tag">Kontakt</span>
             <h2>Spremni za saradnju.</h2>
-            <p>
-              Ovaj landing je centralna prezentacija pre razdvajanja na tri posebne stranice.
-            </p>
+            <p>Ovaj landing je centralna prezentacija pre razdvajanja na tri posebne stranice.</p>
           </div>
           <div className="card-grid">
             <article className="card">
@@ -409,7 +409,7 @@ export default function Page() {
         </section>
       </main>
 
-      <footer className="footer reveal" style={reveal('0.44s')}>
+      <footer className="footer reveal" data-sweep="true" style={reveal('0.44s')}>
         <h2>Tigar AD &#8212; manufacturing-first digitalni nastup.</h2>
         <p>Landing spreman za prezentaciju pre razdvajanja na posebne stranice.</p>
         <div className="cta">
