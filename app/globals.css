@@ -275,6 +275,31 @@ p {
   justify-content: center;
   text-align: center;
   color: #ffffff;
+  overflow: hidden;
+}
+
+.hero-carousel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.hero-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.hero-slide {
+  position: relative;
+  min-width: 100%;
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(520px, 90vh, 860px);
 }
 
 .hero-media {
@@ -288,7 +313,7 @@ p {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.55));
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.7));
   z-index: 1;
 }
 
@@ -308,6 +333,10 @@ p {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.hero-image.mobile-image {
+  display: none;
 }
 
 .hero-content {
@@ -351,6 +380,40 @@ p {
   background: #ffffff;
   color: #111111;
   border-color: #ffffff;
+}
+
+.hero-dots {
+  display: flex;
+  gap: 12px;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: transparent;
+}
+
+.hero-dot.is-active {
+  background: #ffffff;
+}
+
+.hero-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 3;
+}
+
+.hero-controls .icon-btn {
+  border-color: rgba(255, 255, 255, 0.6);
+  background: transparent;
+  color: #ffffff;
 }
 
 .intro {
@@ -899,6 +962,18 @@ textarea {
   .hero-image {
     display: none;
   }
+
+  .hero-image.mobile-image {
+    display: block;
+  }
+
+  .hero-slide.has-video .hero-image.mobile-image {
+    display: none;
+  }
+
+  .hero-media::after {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.78));
+  }
 }
 
 @media (max-width: 720px) {
@@ -917,6 +992,10 @@ textarea {
 
   .hero .btn {
     width: 100%;
+  }
+
+  .hero-content p {
+    display: none;
   }
 
   .section {

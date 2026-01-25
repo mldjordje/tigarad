@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 import Image from 'next/image';
-import HeroMedia from './components/HeroMedia';
+import HeroCarousel from './components/HeroCarousel';
 import RevealObserver from './components/RevealObserver';
 
 const schemaOrg = {
@@ -77,27 +77,7 @@ export default function Page() {
       </header>
 
       <main>
-        <section className="hero">
-          <div className="hero-media" aria-hidden="true">
-            <HeroMedia />
-          </div>
-          <div className="hero-content reveal" style={reveal('0.05s')}>
-            <span className="eyebrow">Tigar AD, Pirot</span>
-            <h1>Gumena obuca i industrijski programi.</h1>
-            <p>
-              Proizvodnja gumene obuce, tehnicke gume i hemijskih proizvoda, spremna za B2C i
-              B2B partnere.
-            </p>
-            <div className="hero-actions">
-              <a className="btn primary" href="#obuca">
-                Katalog obuce
-              </a>
-              <a className="btn" href="#b2b">
-                Posalji upit
-              </a>
-            </div>
-          </div>
-        </section>
+        <HeroCarousel />
 
         <section className="intro reveal" style={reveal('0.1s')}>
           <div className="intro-text">
