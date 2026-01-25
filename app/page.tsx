@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import HeroCarousel from './components/HeroCarousel';
 import RevealObserver from './components/RevealObserver';
+import MobileMenu from './components/MobileMenu';
 
 const schemaOrg = {
   '@context': 'https://schema.org',
@@ -50,29 +51,9 @@ export default function Page() {
               B2B upit
             </a>
           </div>
-          <details className="nav-menu mobile-only">
-            <summary aria-label="Otvori meni">
-              <span className="burger" />
-              Meni
-            </summary>
-            <div className="nav-panel">
-              <nav className="nav-links" aria-label="Mobilni meni">
-                <a href="#obuca">Obuca</a>
-                <a href="#guma">Tehnicka guma</a>
-                <a href="#hemija">Hemija</a>
-                <a href="#proizvodnja">Proizvodnja</a>
-                <a href="#kontakt">Kontakt</a>
-              </nav>
-              <div className="nav-cta">
-                <a className="btn secondary" href="#obuca">
-                  Katalog
-                </a>
-                <a className="btn primary" href="#b2b">
-                  B2B upit
-                </a>
-              </div>
-            </div>
-          </details>
+          <div className="mobile-only">
+            <MobileMenu />
+          </div>
         </div>
       </header>
 

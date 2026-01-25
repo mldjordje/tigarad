@@ -2,7 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
-import { RadioGroup } from '@headlessui/react';
+import { IconButton, MobileStepper } from '@mui/material';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 
 const slides = [
   {
@@ -134,31 +136,56 @@ export default function HeroCarousel() {
           </div>
         ))}
       </div>
-      <div className="hero-controls" aria-label="Hero navigation">
-        <button
-          className="icon-btn"
-          type="button"
+      <div className="hero-controls">
+        <IconButton
           onClick={() => scrollToSlide(active - 1)}
           aria-label="Prethodni slajd"
+          sx={{
+            border: '1px solid rgba(255,255,255,0.6)',
+            color: '#fff',
+            width: 40,
+            height: 40,
+            background: 'rgba(0,0,0,0.2)',
+            '&:hover': { background: 'rgba(0,0,0,0.35)' }
+          }}
         >
-          {'<'}
-        </button>
-        <RadioGroup value={active} onChange={scrollToSlide} className="hero-dots">
-          {slides.map((slide, index) => (
-            <RadioGroup.Option key={slide.id} value={index} className="hero-dot">
-              <span className="sr-only">{slide.eyebrow}</span>
-              <span className="hero-dot-core" aria-hidden="true" />
-            </RadioGroup.Option>
-          ))}
-        </RadioGroup>
-        <button
-          className="icon-btn"
-          type="button"
+          <KeyboardArrowLeft />
+        </IconButton>
+        <MobileStepper
+          variant="dots"
+          steps={slideCount}
+          position="static"
+          activeStep={active}
+          sx={{
+            background: 'transparent',
+            padding: 0,
+            '& .MuiMobileStepper-dot': {
+              backgroundColor: 'rgba(255,255,255,0.45)',
+              width: 8,
+              height: 8,
+              margin: '0 6px'
+            },
+            '& .MuiMobileStepper-dotActive': {
+              backgroundColor: '#fff'
+            }
+          }}
+          nextButton={<span />}
+          backButton={<span />}
+        />
+        <IconButton
           onClick={() => scrollToSlide(active + 1)}
           aria-label="Sledeci slajd"
+          sx={{
+            border: '1px solid rgba(255,255,255,0.6)',
+            color: '#fff',
+            width: 40,
+            height: 40,
+            background: 'rgba(0,0,0,0.2)',
+            '&:hover': { background: 'rgba(0,0,0,0.35)' }
+          }}
         >
-          {'>'}
-        </button>
+          <KeyboardArrowRight />
+        </IconButton>
       </div>
     </section>
   );
