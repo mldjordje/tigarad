@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from 'next';
 import { Fraunces, Manrope } from 'next/font/google';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import './globals.css';
 
 const fraunces = Fraunces({
@@ -39,7 +40,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="sr">
-      <body className={`${manrope.variable} ${fraunces.variable}`}>{children}</body>
+      <body className={`${manrope.variable} ${fraunces.variable}`}>
+        <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+      </body>
     </html>
   );
 }
