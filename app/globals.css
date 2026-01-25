@@ -73,6 +73,18 @@ img {
   display: block;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap;
+}
+
 h1,
 h2,
 h3,
@@ -388,15 +400,28 @@ p {
 }
 
 .hero-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.7);
   background: transparent;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
-.hero-dot.is-active {
+.hero-dot-core {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hero-dot[data-headlessui-state~='checked'] .hero-dot-core {
   background: #ffffff;
+  transform: scale(1.1);
 }
 
 .hero-controls {
@@ -414,6 +439,12 @@ p {
   border-color: rgba(255, 255, 255, 0.6);
   background: transparent;
   color: #ffffff;
+}
+
+.hero-controls .icon-btn:focus-visible,
+.hero-dot:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
 }
 
 .intro {

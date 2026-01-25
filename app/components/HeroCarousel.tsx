@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
+import { RadioGroup } from '@headlessui/react';
 
 const slides = [
   {
@@ -142,17 +143,14 @@ export default function HeroCarousel() {
         >
           {'<'}
         </button>
-        <div className="hero-dots" role="tablist" aria-label="Hero dots">
+        <RadioGroup value={active} onChange={scrollToSlide} className="hero-dots">
           {slides.map((slide, index) => (
-            <button
-              key={slide.id}
-              type="button"
-              className={`hero-dot${active === index ? ' is-active' : ''}`}
-              onClick={() => scrollToSlide(index)}
-              aria-label={`Prikazi ${slide.eyebrow}`}
-            />
+            <RadioGroup.Option key={slide.id} value={index} className="hero-dot">
+              <span className="sr-only">{slide.eyebrow}</span>
+              <span className="hero-dot-core" aria-hidden="true" />
+            </RadioGroup.Option>
           ))}
-        </div>
+        </RadioGroup>
         <button
           className="icon-btn"
           type="button"
