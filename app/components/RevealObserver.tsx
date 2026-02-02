@@ -4,11 +4,22 @@ import { useEffect } from 'react';
 
 export default function RevealObserver() {
   useEffect(() => {
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const elements = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
+    const revealAll = () => {
+      elements.forEach((el) => el.classList.add('is-visible'));
+    };
+
+    const prefersReduced = window.matchMedia
+      ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      : false;
 
     if (prefersReduced) {
-      elements.forEach((el) => el.classList.add('is-visible'));
+      revealAll();
+      return;
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      revealAll();
       return;
     }
 
