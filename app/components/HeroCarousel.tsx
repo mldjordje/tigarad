@@ -51,13 +51,29 @@ export default function HeroCarousel() {
     if (!track) return;
     const clamped = (index + slideCount) % slideCount;
     const slide = track.children[clamped] as HTMLElement | undefined;
-    slide?.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+    if (slide) {
+      // Avoid vertical page jumps caused by scrollIntoView on some browsers.
+      const left = slide.offsetLeft;
+      if (typeof (track as HTMLElement).scrollTo === 'function') {
+        try {
+          track.scrollTo({ left, behavior: 'smooth' });
+        } catch {
+          track.scrollLeft = left;
+        }
+      } else {
+        track.scrollLeft = left;
+      }
+    }
     setActive(clamped);
   };
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
+
+    if (!('IntersectionObserver' in window)) {
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {

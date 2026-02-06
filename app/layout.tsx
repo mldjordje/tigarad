@@ -39,7 +39,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="sr">
+    <html lang="sr" className="no-js">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');"
+          }}
+        />
+      </head>
       <body className={`${manrope.variable} ${fraunces.variable}`}>
         <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
       </body>

@@ -940,6 +940,12 @@ textarea {
 }
 
 .reveal {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.js .reveal {
   opacity: 0;
   transform: translateY(30px) scale(0.98);
   filter: blur(6px);
@@ -947,7 +953,7 @@ textarea {
   transition-delay: var(--d, 0s);
 }
 
-.reveal.is-visible {
+.js .reveal.is-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
@@ -955,6 +961,13 @@ textarea {
 
 @media (prefers-reduced-motion: reduce) {
   .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+
+  .js .reveal {
     opacity: 1;
     transform: none;
     filter: none;
